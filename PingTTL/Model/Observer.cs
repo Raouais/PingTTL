@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PingTTL {
-    internal class Computer {
+namespace PingTTL.Model {
+    public interface Observer {
+
+        void Update(Computer computer,string status);
     }
 }

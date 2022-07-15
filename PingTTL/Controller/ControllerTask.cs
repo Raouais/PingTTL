@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PingTTL.Controller {
-    internal class ControllerTask {
+    public class ControllerTask {
     }
 }

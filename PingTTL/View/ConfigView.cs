@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PingTTL.Model;
+using System.Windows.Forms;
+
 
 namespace PingTTL.View {
-    internal class ConfigView {
+    public partial class ConfigView :Form, Observer {
+        public ConfigView() {
+        }
+
+        public void Update(Computer computer,string status) {
+            throw new System.NotImplementedException();
+        }
     }
 }

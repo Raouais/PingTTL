@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PingTTL.View;
+using PingTTL.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +15,8 @@ namespace PingTTL {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            ControllerTask controler = new ControllerTask();
+            Application.Run(new MonitoringView(controler));
         }
     }
 }
