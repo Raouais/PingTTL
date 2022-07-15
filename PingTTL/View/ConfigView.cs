@@ -10,5 +10,7 @@ namespace PingTTL.View {
         public void Update(Computer computer,string status) {
             throw new System.NotImplementedException();
         }
+
+
     }
 }

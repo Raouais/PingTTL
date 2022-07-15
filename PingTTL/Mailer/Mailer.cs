@@ -1,14 +1,22 @@
 ﻿using PingTTL.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PingTTL.Mailer {
     internal class Mailer :Observer {
+
+
+        private Email email;
+
+        public Mailer(Email email) {
+            this.email = email;
+        }
         public void Update(Computer computer,string status) {
-            throw new NotImplementedException();
+
+            string htmlBody = "" +
+                "" +
+                "" +
+                "";
+
+            email.Send(htmlBody);
         }
     }
 }

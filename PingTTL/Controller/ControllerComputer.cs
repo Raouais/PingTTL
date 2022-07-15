@@ -6,7 +6,8 @@ namespace PingTTL.Controller {
     public class ControllerComputer {
 
         private static readonly int MAX_COMPUTERS_MONITORING = 8;
-        private static readonly string FILENAME = "ComputersData.bin";
+        private static readonly string DATA_COMPUTERS_FILENAME = "ComputersData.bin";
+        private static readonly string DATA_MAILING_FILENAME = "MailingData.bin";
 
         private List<Computer> computers;
 
@@ -23,11 +24,11 @@ namespace PingTTL.Controller {
         }
 
         public void StoreComputersList() {
-            Utils.WriteToBinaryFile(FILENAME,computers,false);
+            Utils.WriteToBinaryFile(DATA_COMPUTERS_FILENAME,computers,false);
         }
 
         public void GetComputersList() {
-            computers = Utils.ReadFromBinaryFile<List<Computer>>(FILENAME);
+            computers = Utils.ReadFromBinaryFile<List<Computer>>(DATA_COMPUTERS_FILENAME);
         }
     }
 }
