@@ -7,5 +7,8 @@ namespace PingTTL {
             InitializeComponent();
         }
 
+        private void quitBtn_Click(object sender,System.EventArgs e) {
+
+        }
     }
 }

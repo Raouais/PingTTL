@@ -15,8 +15,11 @@ namespace PingTTL {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ControllerTask controler = new ControllerTask();
-            Application.Run(new MonitoringView(controler));
+            ControllerTask controlerT = new ControllerTask();
+            ControllerConfig controllerC = new ControllerConfig();
+            ConfigView configView = new ConfigView(controllerC);
+            configView.ShowFirstStepTemplate();
+            Application.Run(configView);
         }
     }
 }

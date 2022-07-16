@@ -24,18 +24,18 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.configBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
             this.computerStatus = new System.Windows.Forms.Label();
             this.computerIp = new System.Windows.Forms.Label();
             this.computerName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Monitoring";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(434, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(215, 29);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Status: Fonctionnelle";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(186, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(212, 29);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "IP: 192.168.172.25";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(142, 29);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "PC1: Socrate";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(434, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(215, 29);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Status: Fonctionnelle";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(186, 148);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(212, 29);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "IP: 192.168.172.25";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 29);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "PC1: Socrate";
+            // 
             // configBtn
             // 
             this.configBtn.BackColor = System.Drawing.Color.DarkGreen;
@@ -81,6 +135,7 @@
             this.quitBtn.TabIndex = 4;
             this.quitBtn.Text = "Quitter";
             this.quitBtn.UseVisualStyleBackColor = false;
+            this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
             // computerStatus
             // 
@@ -117,60 +172,6 @@
             this.label1.Size = new System.Drawing.Size(99, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ping TTL";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(434, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 29);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Status: Fonctionnelle";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(186, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 29);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "IP: 192.168.172.25";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 29);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "PC1: Socrate";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(434, 189);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Status: Fonctionnelle";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(186, 189);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(212, 29);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "IP: 192.168.172.25";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 189);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 29);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "PC1: Socrate";
             // 
             // Form1
             // 

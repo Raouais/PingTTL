@@ -16,18 +16,20 @@
             base.Dispose(disposing);
         }
         private void InitializeComponent() {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.config_box = new System.Windows.Forms.GroupBox();
+            this.ttl_input = new System.Windows.Forms.TextBox();
+            this.name_input = new System.Windows.Forms.TextBox();
+            this.ip_input = new System.Windows.Forms.TextBox();
+            this.error_lbl = new System.Windows.Forms.Label();
+            this.next_btn = new System.Windows.Forms.Button();
+            this.email_btn = new System.Windows.Forms.Button();
+            this.enter_computers_btn = new System.Windows.Forms.Button();
             this.step_lbl = new System.Windows.Forms.Label();
             this.nb_computers_lbl = new System.Windows.Forms.Label();
             this.nb_computers_input = new System.Windows.Forms.TextBox();
-            this.enter_computers_btn = new System.Windows.Forms.Button();
             this.name_lbl = new System.Windows.Forms.Label();
             this.ip_lbl = new System.Windows.Forms.Label();
             this.ttl_lbl = new System.Windows.Forms.Label();
-            this.name_input = new System.Windows.Forms.TextBox();
-            this.ip_input = new System.Windows.Forms.TextBox();
-            this.ttl_input = new System.Windows.Forms.TextBox();
-            this.next_btn = new System.Windows.Forms.Button();
             this.email_lbl = new System.Windows.Forms.Label();
             this.from_lbl = new System.Windows.Forms.Label();
             this.to_lbl = new System.Windows.Forms.Label();
@@ -41,34 +43,80 @@
             this.port_input = new System.Windows.Forms.TextBox();
             this.host_input = new System.Windows.Forms.TextBox();
             this.password_input = new System.Windows.Forms.TextBox();
-            this.emai_btn = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.password_input.PasswordChar = '*';
+            this.config_box.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // config_box
             // 
-            this.groupBox1.Controls.Add(this.emai_btn);
-            this.groupBox1.Controls.Add(this.password_input);
-            this.groupBox1.Controls.Add(this.host_input);
-            this.groupBox1.Controls.Add(this.port_input);
-            this.groupBox1.Controls.Add(this.subject_input);
-            this.groupBox1.Controls.Add(this.to_input);
-            this.groupBox1.Controls.Add(this.from_input);
-            this.groupBox1.Controls.Add(this.password_lbl);
-            this.groupBox1.Controls.Add(this.host_lbl);
-            this.groupBox1.Controls.Add(this.port_lbl);
-            this.groupBox1.Controls.Add(this.subject_lbl);
-            this.groupBox1.Controls.Add(this.to_lbl);
-            this.groupBox1.Controls.Add(this.from_lbl);
-            this.groupBox1.Controls.Add(this.email_lbl);
-            this.groupBox1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(655, 331);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configurations";
+            this.config_box.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.config_box.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.config_box.Location = new System.Drawing.Point(12, 12);
+            this.config_box.Name = "config_box";
+            this.config_box.Size = new System.Drawing.Size(655, 331);
+            this.config_box.TabIndex = 0;
+            this.config_box.TabStop = false;
+            this.config_box.Text = "Configurations";
+            // 
+            // ttl_input
+            // 
+            this.ttl_input.Location = new System.Drawing.Point(155, 241);
+            this.ttl_input.Name = "ttl_input";
+            this.ttl_input.Size = new System.Drawing.Size(267, 35);
+            this.ttl_input.TabIndex = 9;
+            // 
+            // name_input
+            // 
+            this.name_input.Location = new System.Drawing.Point(155, 68);
+            this.name_input.Name = "name_input";
+            this.name_input.Size = new System.Drawing.Size(267, 35);
+            this.name_input.TabIndex = 7;
+            // 
+            // ip_input
+            // 
+            this.ip_input.Location = new System.Drawing.Point(155, 146);
+            this.ip_input.Name = "ip_input";
+            this.ip_input.Size = new System.Drawing.Size(267, 35);
+            this.ip_input.TabIndex = 8;
+            // 
+            // error_lbl
+            // 
+            this.error_lbl.AutoSize = true;
+            this.error_lbl.Location = new System.Drawing.Point(6, 299);
+            this.error_lbl.Name = "error_lbl";
+            this.error_lbl.Size = new System.Drawing.Size(66, 29);
+            this.error_lbl.TabIndex = 1;
+            this.error_lbl.Text = "Error";
+            // 
+            // next_btn
+            // 
+            this.next_btn.Location = new System.Drawing.Point(530, 282);
+            this.next_btn.Name = "next_btn";
+            this.next_btn.Size = new System.Drawing.Size(119, 43);
+            this.next_btn.TabIndex = 10;
+            this.next_btn.Text = "Suivant";
+            this.next_btn.UseVisualStyleBackColor = true;
+            this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
+            // 
+            // email_btn
+            // 
+            this.email_btn.Location = new System.Drawing.Point(549, 286);
+            this.email_btn.Name = "email_btn";
+            this.email_btn.Size = new System.Drawing.Size(100, 39);
+            this.email_btn.TabIndex = 13;
+            this.email_btn.Text = "Entrer";
+            this.email_btn.UseVisualStyleBackColor = true;
+            this.email_btn.Click += new System.EventHandler(this.email_btn_Click);
+            // 
+            // enter_computers_btn
+            // 
+            this.enter_computers_btn.Location = new System.Drawing.Point(6, 156);
+            this.enter_computers_btn.Name = "enter_computers_btn";
+            this.enter_computers_btn.Size = new System.Drawing.Size(116, 46);
+            this.enter_computers_btn.TabIndex = 2;
+            this.enter_computers_btn.Text = "Suivant";
+            this.enter_computers_btn.UseVisualStyleBackColor = true;
+            this.enter_computers_btn.Click += new System.EventHandler(this.enter_computers_btn_Click);
             // 
             // step_lbl
             // 
@@ -94,15 +142,6 @@
             this.nb_computers_input.Name = "nb_computers_input";
             this.nb_computers_input.Size = new System.Drawing.Size(100, 22);
             this.nb_computers_input.TabIndex = 1;
-            // 
-            // enter_computers_btn
-            // 
-            this.enter_computers_btn.Location = new System.Drawing.Point(6, 156);
-            this.enter_computers_btn.Name = "enter_computers_btn";
-            this.enter_computers_btn.Size = new System.Drawing.Size(116, 46);
-            this.enter_computers_btn.TabIndex = 2;
-            this.enter_computers_btn.Text = "Suivant";
-            this.enter_computers_btn.UseVisualStyleBackColor = true;
             // 
             // name_lbl
             // 
@@ -130,36 +169,6 @@
             this.ttl_lbl.Size = new System.Drawing.Size(124, 29);
             this.ttl_lbl.TabIndex = 6;
             this.ttl_lbl.Text = "Intervalle :";
-            // 
-            // name_input
-            // 
-            this.name_input.Location = new System.Drawing.Point(155, 68);
-            this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(100, 22);
-            this.name_input.TabIndex = 7;
-            // 
-            // ip_input
-            // 
-            this.ip_input.Location = new System.Drawing.Point(155, 146);
-            this.ip_input.Name = "ip_input";
-            this.ip_input.Size = new System.Drawing.Size(100, 22);
-            this.ip_input.TabIndex = 8;
-            // 
-            // ttl_input
-            // 
-            this.ttl_input.Location = new System.Drawing.Point(155, 241);
-            this.ttl_input.Name = "ttl_input";
-            this.ttl_input.Size = new System.Drawing.Size(100, 22);
-            this.ttl_input.TabIndex = 9;
-            // 
-            // next_btn
-            // 
-            this.next_btn.Location = new System.Drawing.Point(530, 282);
-            this.next_btn.Name = "next_btn";
-            this.next_btn.Size = new System.Drawing.Size(119, 43);
-            this.next_btn.TabIndex = 10;
-            this.next_btn.Text = "Suivant";
-            this.next_btn.UseVisualStyleBackColor = true;
             // 
             // email_lbl
             // 
@@ -228,65 +237,56 @@
             // 
             this.from_input.Location = new System.Drawing.Point(95, 94);
             this.from_input.Name = "from_input";
-            this.from_input.Size = new System.Drawing.Size(202, 35);
+            this.from_input.Size = new System.Drawing.Size(202, 22);
             this.from_input.TabIndex = 7;
             // 
             // to_input
             // 
             this.to_input.Location = new System.Drawing.Point(95, 144);
             this.to_input.Name = "to_input";
-            this.to_input.Size = new System.Drawing.Size(202, 35);
+            this.to_input.Size = new System.Drawing.Size(202, 22);
             this.to_input.TabIndex = 8;
             // 
             // subject_input
             // 
             this.subject_input.Location = new System.Drawing.Point(95, 195);
             this.subject_input.Name = "subject_input";
-            this.subject_input.Size = new System.Drawing.Size(202, 35);
+            this.subject_input.Size = new System.Drawing.Size(202, 22);
             this.subject_input.TabIndex = 9;
             // 
             // port_input
             // 
             this.port_input.Location = new System.Drawing.Point(472, 91);
             this.port_input.Name = "port_input";
-            this.port_input.Size = new System.Drawing.Size(177, 35);
+            this.port_input.Size = new System.Drawing.Size(177, 22);
             this.port_input.TabIndex = 10;
             // 
             // host_input
             // 
             this.host_input.Location = new System.Drawing.Point(472, 141);
             this.host_input.Name = "host_input";
-            this.host_input.Size = new System.Drawing.Size(177, 35);
+            this.host_input.Size = new System.Drawing.Size(177, 22);
             this.host_input.TabIndex = 11;
             // 
             // password_input
             // 
             this.password_input.Location = new System.Drawing.Point(472, 195);
             this.password_input.Name = "password_input";
-            this.password_input.Size = new System.Drawing.Size(177, 35);
+            this.password_input.Size = new System.Drawing.Size(177, 22);
             this.password_input.TabIndex = 12;
-            // 
-            // emai_btn
-            // 
-            this.emai_btn.Location = new System.Drawing.Point(549, 286);
-            this.emai_btn.Name = "emai_btn";
-            this.emai_btn.Size = new System.Drawing.Size(100, 39);
-            this.emai_btn.TabIndex = 13;
-            this.emai_btn.Text = "Entrer";
-            this.emai_btn.UseVisualStyleBackColor = true;
             // 
             // ConfigView
             // 
             this.ClientSize = new System.Drawing.Size(681, 352);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.config_box);
             this.Name = "ConfigView";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.config_box.ResumeLayout(false);
+            this.config_box.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox config_box;
         private System.Windows.Forms.Button enter_computers_btn;
         private System.Windows.Forms.TextBox nb_computers_input;
         private System.Windows.Forms.Label nb_computers_lbl;
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Label ttl_lbl;
         private System.Windows.Forms.Label ip_lbl;
         private System.Windows.Forms.Label name_lbl;
-        private System.Windows.Forms.Button emai_btn;
+        private System.Windows.Forms.Button email_btn;
         private System.Windows.Forms.TextBox password_input;
         private System.Windows.Forms.TextBox host_input;
         private System.Windows.Forms.TextBox port_input;
@@ -312,5 +312,6 @@
         private System.Windows.Forms.Label to_lbl;
         private System.Windows.Forms.Label from_lbl;
         private System.Windows.Forms.Label email_lbl;
+        private System.Windows.Forms.Label error_lbl;
     }
 }

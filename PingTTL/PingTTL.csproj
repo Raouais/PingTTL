@@ -47,9 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\SameIPAddressException.cs" />
     <Compile Include="Mailer\Email.cs" />
     <Compile Include="Model\Computer.cs" />
-    <Compile Include="Controller\ControllerComputer.cs" />
+    <Compile Include="Controller\ControllerConfig.cs" />
     <Compile Include="Controller\ControllerTask.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

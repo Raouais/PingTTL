@@ -1,8 +1,20 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace PingTTL {
     internal class Utils {
 
+
+
+        public static int GetIntFromString(string str) {
+            int converted = -1;
+            try {
+                converted = Convert.ToInt32(str);
+            } catch(FormatException e) { 
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+            return converted;
+        }
         public static void WriteToBinaryFile<T>(string filePath,T objectToWrite,bool append = false) {
             Stream stream = File.Open(filePath,append ? FileMode.Append : FileMode.Create);
             var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
