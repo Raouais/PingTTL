@@ -47,11 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\SameIPAddressException.cs" />
-    <Compile Include="Mailer\Email.cs" />
+    <Compile Include="Controller\Exceptions\MaxComputerException.cs" />
+    <Compile Include="Model\Exceptions\InvalidEmailAddressException.cs" />
+    <Compile Include="Controller\Exceptions\SameIPAddressException.cs" />
+    <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Computer.cs" />
     <Compile Include="Controller\ControllerConfig.cs" />
-    <Compile Include="Controller\ControllerTask.cs" />
+    <Compile Include="Controller\ControllerMonitoring.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +61,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Mailer\Mailer.cs" />
+    <Compile Include="Model\Exceptions\InvalidIPAddressException.cs" />
     <Compile Include="Model\Observer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -96,7 +96,6 @@
             this.next_btn.TabIndex = 10;
             this.next_btn.Text = "Suivant";
             this.next_btn.UseVisualStyleBackColor = true;
-            this.next_btn.Click += new System.EventHandler(this.next_btn_Click);
             // 
             // email_btn
             // 
@@ -106,7 +105,6 @@
             this.email_btn.TabIndex = 13;
             this.email_btn.Text = "Entrer";
             this.email_btn.UseVisualStyleBackColor = true;
-            this.email_btn.Click += new System.EventHandler(this.email_btn_Click);
             // 
             // enter_computers_btn
             // 
@@ -116,7 +114,6 @@
             this.enter_computers_btn.TabIndex = 2;
             this.enter_computers_btn.Text = "Suivant";
             this.enter_computers_btn.UseVisualStyleBackColor = true;
-            this.enter_computers_btn.Click += new System.EventHandler(this.enter_computers_btn_Click);
             // 
             // step_lbl
             // 
@@ -286,32 +283,32 @@
 
         }
 
-        private System.Windows.Forms.GroupBox config_box;
-        private System.Windows.Forms.Button enter_computers_btn;
-        private System.Windows.Forms.TextBox nb_computers_input;
-        private System.Windows.Forms.Label nb_computers_lbl;
-        private System.Windows.Forms.Label step_lbl;
-        private System.Windows.Forms.Button next_btn;
-        private System.Windows.Forms.TextBox ttl_input;
-        private System.Windows.Forms.TextBox ip_input;
-        private System.Windows.Forms.TextBox name_input;
-        private System.Windows.Forms.Label ttl_lbl;
-        private System.Windows.Forms.Label ip_lbl;
-        private System.Windows.Forms.Label name_lbl;
-        private System.Windows.Forms.Button email_btn;
-        private System.Windows.Forms.TextBox password_input;
-        private System.Windows.Forms.TextBox host_input;
-        private System.Windows.Forms.TextBox port_input;
-        private System.Windows.Forms.TextBox subject_input;
-        private System.Windows.Forms.TextBox to_input;
-        private System.Windows.Forms.TextBox from_input;
-        private System.Windows.Forms.Label password_lbl;
-        private System.Windows.Forms.Label host_lbl;
-        private System.Windows.Forms.Label port_lbl;
-        private System.Windows.Forms.Label subject_lbl;
-        private System.Windows.Forms.Label to_lbl;
-        private System.Windows.Forms.Label from_lbl;
-        private System.Windows.Forms.Label email_lbl;
-        private System.Windows.Forms.Label error_lbl;
+        public System.Windows.Forms.Button next_btn;
+        public System.Windows.Forms.Button enter_computers_btn;
+        public System.Windows.Forms.Button email_btn;
+        public System.Windows.Forms.GroupBox config_box;
+        public System.Windows.Forms.TextBox nb_computers_input;
+        public System.Windows.Forms.Label nb_computers_lbl;
+        public System.Windows.Forms.Label step_lbl;
+        public System.Windows.Forms.TextBox ttl_input;
+        public System.Windows.Forms.TextBox ip_input;
+        public System.Windows.Forms.TextBox name_input;
+        public System.Windows.Forms.Label ttl_lbl;
+        public System.Windows.Forms.Label ip_lbl;
+        public System.Windows.Forms.Label name_lbl;
+        public System.Windows.Forms.TextBox password_input;
+        public System.Windows.Forms.TextBox host_input;
+        public System.Windows.Forms.TextBox port_input;
+        public System.Windows.Forms.TextBox subject_input;
+        public System.Windows.Forms.TextBox to_input;
+        public System.Windows.Forms.TextBox from_input;
+        public System.Windows.Forms.Label password_lbl;
+        public System.Windows.Forms.Label host_lbl;
+        public System.Windows.Forms.Label port_lbl;
+        public System.Windows.Forms.Label subject_lbl;
+        public System.Windows.Forms.Label to_lbl;
+        public System.Windows.Forms.Label from_lbl;
+        public System.Windows.Forms.Label email_lbl;
+        public System.Windows.Forms.Label error_lbl;
     }
 }

@@ -16,17 +16,27 @@ namespace PingTTL {
             return converted;
         }
         public static void WriteToBinaryFile<T>(string filePath,T objectToWrite,bool append = false) {
-            Stream stream = File.Open(filePath,append ? FileMode.Append : FileMode.Create);
-            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            binaryFormatter.Serialize(stream,objectToWrite);
-            stream.Close();
+            try {
+                Stream stream = File.Open(filePath,append ? FileMode.Append : FileMode.Create);
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                binaryFormatter.Serialize(stream,objectToWrite);
+                stream.Close();
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
 
         }
 
         public static T ReadFromBinaryFile<T>(string filePath) {
-            Stream stream = File.Open(filePath,FileMode.Open);
-            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            return (T) binaryFormatter.Deserialize(stream);
+            T fileContent = default(T);
+            try {
+                Stream stream = File.Open(filePath,FileMode.Open);
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                fileContent = (T) binaryFormatter.Deserialize(stream);
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+            return fileContent;
         }
     }
 }

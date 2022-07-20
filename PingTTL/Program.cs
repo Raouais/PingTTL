@@ -1,9 +1,6 @@
 ﻿using PingTTL.View;
 using PingTTL.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PingTTL {
@@ -15,11 +12,29 @@ namespace PingTTL {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ControllerTask controlerT = new ControllerTask();
-            ControllerConfig controllerC = new ControllerConfig();
-            ConfigView configView = new ConfigView(controllerC);
-            configView.ShowFirstStepTemplate();
-            Application.Run(configView);
+
+            ConfigView configView = new ConfigView();
+            MonitoringView MonitorView = new MonitoringView();
+
+            ControllerMonitoring controllerM = ControllerMonitoring.getInstance(MonitorView);
+            ControllerConfig controllerC = ControllerConfig.getInstance(configView);
+
+            if(!controllerC.IsConfigAlreadyMade()) {
+                controllerC.View.IsStepsNeeded = true;
+                controllerC.View.AddListComponent();
+                controllerC.View.ShowFirstStepTemplate();
+                Application.Run(controllerC.View);
+            } else if(!controllerC.IsEmailConfigAlreadyMade()) {
+                controllerC.View.AddListComponent();
+                controllerC.View.ShowMailingFormTemplate();
+                Application.Run(controllerC.View);
+            } else {
+                //show monitoring
+                controllerM.AddComputersList(controllerC.Computers);
+                controllerM.StartMonitoring();
+                controllerM.View.ShowMonitoring();
+                Application.Run(controllerM.View);
+            }
         }
     }
 }

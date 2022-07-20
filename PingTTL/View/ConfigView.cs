@@ -4,82 +4,29 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using PingTTL.Model.Exceptions;
+using PingTTL.Mailer;
 
 namespace PingTTL.View {
     public partial class ConfigView :Form, Observer {
+        private List<Control> mailingControls   = new List<Control>();
+        private List<Control> computerControls  = new List<Control>();
+        private List<Control> firstStepControls = new List<Control>();
+        private bool isStepsNeeded;
 
-        private ControllerConfig controller;
-        private int steps = 1;
-        private int currentStep = 1;
-        private List<Control> MailingControls   = new List<Control>();
-        private List<Control> ComputerControls  = new List<Control>();
-        private List<Control> FirstStepControls = new List<Control>();
-         
-        public ConfigView(ControllerConfig controller) {
-            this.controller = controller;
+        public List<Control> MailingControls { get => mailingControls; set => mailingControls = value; }
+        public List<Control> ComputerControls { get => computerControls; set => computerControls = value; }
+        public List<Control> FirstStepControls { get => firstStepControls; set => firstStepControls = value; }
+        public bool IsStepsNeeded { get => isStepsNeeded; set => isStepsNeeded = value; }
+
+        public ConfigView() {
             InitializeComponent();
-            AddComputerControlsToList();
+        }
+
+        public void AddListComponent() {
+            AddcomputerControlsToList();
             AddMailingChildrenToList();
-            AddFirstStepControlsToList();
+            AddfirstStepControlsToList();
         }
-
-        private void enter_computers_btn_Click(object sender, EventArgs e) {
-            steps += Utils.GetIntFromString(nb_computers_input.Text);
-            System.Diagnostics.Debug.WriteLine(steps);
-            if(steps > 0 && steps <= controller.MaxSteps) {
-                ShowComputerFormTemplate();
-                HandleStepText();
-            } else {
-                ShowError("Erreur : Veuillez insérer un chiffre compris entre les bornes.");
-                steps = 1;
-            }
-        }
-
-        private void email_btn_Click(object sender, EventArgs e) {
-            bool isNotEmptyText = true;
-            MailingControls.ForEach(c => {
-                if(c is TextBox && (c as TextBox).Text == "") {
-                    isNotEmptyText = false;
-                }
-            });
-            if(isNotEmptyText) {
-                if(Utils.GetIntFromString(port_input.Text) > 0) {
-                    try {
-                       /* controller.AddMail*/
-                    }
-                }
-            } else {
-                ShowError("Erreur : Tout les champs sont requis");
-            }
-        }
-
-        private void next_btn_Click(object sender, EventArgs e) {
-            if(name_input.Text != "" && ip_input.Text != "" && ttl_input.Text != "") {
-                int ttl = Utils.GetIntFromString(ttl_input.Text);
-                if(ttl > 0) {
-                    try {
-                        controller.AddComputer(new Computer(name_input.Text,ip_input.Text,ttl));
-                        ClearComputerFormTemplate();
-                        currentStep++;
-                        HandleStepText();
-                    } catch(SameIPAddressException es) {
-                        ShowError(es.Message);
-                    } catch(InvalidIPAddressException ei) {
-                        ShowError(ei.Message);
-                    }
-                } else {
-                    ShowError("Erreur : Le champs '" + ttl_lbl.Text + "' doit contenir que des chiffres.");
-                } 
-            } else {
-                ShowError("Erreur : Tout les champs sont requis");
-            }
-            if(currentStep == steps) {
-                /*controller.StoreComputersList();*/
-                ShowMailingFormTemplate();
-                HandleStepText();
-            }
-        }
-
         private void showTemplate(List<Control> list) {
             try {
                 config_box.Controls.Clear();
@@ -99,7 +46,6 @@ namespace PingTTL.View {
         public void ShowMailingFormTemplate() {
             showTemplate(MailingControls);
         }
-
         private void AddConfigBoxChildren(Control c) {
             if(c is Button) {
                 config_box.Controls.Add((Button) c);
@@ -109,24 +55,20 @@ namespace PingTTL.View {
                 config_box.Controls.Add((Label) c);
             }
         }
-
-
-        private void ClearComputerFormTemplate() {
+        public void ClearComputerFormTemplate() {
             ComputerControls.ForEach(c => {
                 if(c is TextBox) {
                     (c as TextBox).Text = "";
                 }
             });
         }
-
-        private void ShowError(string text) {
+        public void ShowError(string text) {
             error_lbl.Text = text;
             config_box.Controls.Add(error_lbl);
         }
-        private void HandleStepText() {
+        public void HandleStepText(int currentStep, int steps) {
             step_lbl.Text = "Etape : " + currentStep + "/" + steps;
         }
-
         private void AddMailingChildrenToList() {
             MailingControls.Add(email_btn);
             MailingControls.Add(email_lbl);
@@ -143,10 +85,17 @@ namespace PingTTL.View {
             MailingControls.Add(to_lbl);
             MailingControls.Add(from_input);
             MailingControls.Add(from_lbl);
-            MailingControls.Add(step_lbl);
+            if(IsStepsNeeded) {
+                MailingControls.Add(step_lbl);
+            }
         }
+        private void AddcomputerControlsToList() {
 
-        private void AddComputerControlsToList() {
+            if(IsStepsNeeded) {
+                ComputerControls.Add(step_lbl);
+            } else {
+                next_btn.Text = "Ajouter";
+            }
             ComputerControls.Add(next_btn);
             ComputerControls.Add(ttl_input);
             ComputerControls.Add(ttl_lbl);
@@ -154,18 +103,15 @@ namespace PingTTL.View {
             ComputerControls.Add(ip_lbl);
             ComputerControls.Add(name_input);
             ComputerControls.Add(name_lbl);
-            ComputerControls.Add(step_lbl);
+            
         }
-
-        private void AddFirstStepControlsToList() {
+        private void AddfirstStepControlsToList() {
             FirstStepControls.Add(nb_computers_input);
             FirstStepControls.Add(nb_computers_lbl);
             FirstStepControls.Add(enter_computers_btn);
         } 
-
         public void Update(Computer computer,string status) {
             throw new System.NotImplementedException();
         }
-
     }
 }

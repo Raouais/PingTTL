@@ -7,26 +7,28 @@ namespace PingTTL.Model {
 
 
         private string name;
-        private int ip;
+        private string ip;
         private int port;
+        private int timer;
 
 
-        public string Name { get; set; }
-        public String Ip { 
-            get { return name; } 
+        public string Ip { 
+            get { return ip; } 
             set {   if(IsIPAddressValid(value)) {
-                        name = value; } 
+                        ip = value; } 
                     else {
                         throw new InvalidIPAddressException("Erreur : L'adresse IP est incorrect."); 
                     } 
             } 
         }
-        public int Timer { get; set; }
+        public string Name { get => name;  set => name = value; }
+        public int Timer { get => timer; set => timer = value; }
+        public int Port { get => port; set => port = value; }
 
         public Computer(string name, string ip, int timer) { 
-            this.Name = name;
-            this.Ip = ip;
-            this.Timer = timer;
+            Name = name;
+            Ip = ip;
+            Timer = timer;
         }
 
         public bool IsIPAddressValid(string ip) {
