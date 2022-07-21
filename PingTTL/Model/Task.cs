@@ -9,23 +9,22 @@ using System.Threading.Tasks;
 namespace PingTTL {
     public class Task {
 
-        private int ttl;
         private Computer computer;
         private string status;
         private List<Observer> observers;
-        public Task(Computer computer,int ttl) {
-            this.ttl = ttl;
+        public Task(Computer computer) {
             this.computer = computer;
             this.status = "Non initié";
             this.observers = new List<Observer>();
         }
 
         public void Attached(MonitoringView observer) {
-            this.observers.Add(observer);
+            observers.Add(observer);
+            UpdateView();
         }
 
         public void UpdateView() {
-            this.observers.ForEach(o => o.Update(computer,status));
+            observers.ForEach(o => o.Update(computer,status));
         }
     }
 }
