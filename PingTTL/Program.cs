@@ -23,18 +23,18 @@ namespace PingTTL {
                 controllerC.View.IsStepsNeeded = true;
                 controllerC.View.AddListComponent();
                 controllerC.View.ShowFirstStepTemplate();
-                Application.Run(controllerC.View);
+                controllerC.View.Show();
             } else if(!controllerC.IsEmailConfigAlreadyMade()) {
                 controllerC.View.AddListComponent();
                 controllerC.View.ShowMailingFormTemplate();
-                Application.Run(controllerC.View);
+                controllerC.View.Show();
             } else {
                 //show monitoring
                 controllerM.AddComputersList(controllerC.Computers);
                 controllerM.StartMonitoring();
                 controllerM.View.ShowMonitoring();
-                Application.Run(controllerM.View);
             }
+            Application.Run(controllerM.View);
         }
     }
 }

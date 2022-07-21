@@ -9,7 +9,7 @@ namespace PingTTL.View {
     public partial class MonitoringView :Form, Observer {
 
         private readonly int LABELPERCOMPUTER = 3;
-        private readonly int nameLabelWidth = 0;
+        private readonly int nameLabelWidth = 6;
         private readonly int ipLabelWidth = 471;
         private readonly int statusLabelWidth = 829;
         private readonly int initHeightLabel = 164;
@@ -21,8 +21,6 @@ namespace PingTTL.View {
             computers = new List<Computer>();
             currentHeightLabel = initHeightLabel;
             InitializeComponent();
-
-
         }
     
         public void ShowMonitoring() { }
@@ -33,9 +31,10 @@ namespace PingTTL.View {
 
         private void IncreaseView() {
             currentHeightLabel += incrementHeightView;
-            int width = ClientSize.Width;
-            int height = ClientSize.Height + incrementHeightView;
-            ClientSize = new System.Drawing.Size(width, height);
+            ClientSize = new System.Drawing.Size(ClientSize.Width, ClientSize.Height + incrementHeightView);
+            monitoring_box.ClientSize = new System.Drawing.Size(monitoring_box.ClientSize.Width,monitoring_box.ClientSize.Height + incrementHeightView);
+            quitBtn.Location = new System.Drawing.Point(quitBtn.Location.X, quitBtn.Location.Y + incrementHeightView);
+            configBtn.Location = new System.Drawing.Point(configBtn.Location.X, configBtn.Location.Y + incrementHeightView);
         }
         public void createComputerLabels(Computer computer, string status) {
             int[] widths = {nameLabelWidth, ipLabelWidth, statusLabelWidth};
@@ -43,25 +42,24 @@ namespace PingTTL.View {
 
             for(int i = 0; i < LABELPERCOMPUTER; i++) {
                 Label label = new Label();
+                monitoring_box.Controls.Add(label);
                 label.AutoSize = true;
                 label.Font = new System.Drawing.Font("Ebrima",16.2F);
                 label.Name = computerProperties[i];
                 label.Location = new System.Drawing.Point(widths[i],currentHeightLabel);
                 label.Text = computerProperties[i];
-                monitoring_box.Controls.Add(label);
             }
             IncreaseView();
         }
 
         private bool HasNotComputer(Computer computer) {
-            return !computers.Exists(c => c.Equals(computer));
+            return !computers.Exists(c => c.Ip == computer.Ip);
         }
 
         private Label GetLabel(string name) {
             return Controls.Find(name,true).FirstOrDefault() as Label;
         }
         
-
         public void Update(Computer computer,string status) {
             if(HasNotComputer(computer)) {
                 createComputerLabels(computer,status);

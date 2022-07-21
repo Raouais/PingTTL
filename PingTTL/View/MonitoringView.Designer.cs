@@ -24,6 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.monitoring_box = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.configBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
@@ -31,8 +33,6 @@
             this.computer_ip_lbl = new System.Windows.Forms.Label();
             this.computer_name_lbl = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.monitoring_box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,9 +43,6 @@
             this.monitoring_box.Controls.Add(this.label1);
             this.monitoring_box.Controls.Add(this.configBtn);
             this.monitoring_box.Controls.Add(this.quitBtn);
-            this.monitoring_box.Controls.Add(this.computer_status_lbl);
-            this.monitoring_box.Controls.Add(this.computer_ip_lbl);
-            this.monitoring_box.Controls.Add(this.computer_name_lbl);
             this.monitoring_box.Controls.Add(this.title);
             this.monitoring_box.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monitoring_box.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -55,6 +52,24 @@
             this.monitoring_box.TabIndex = 0;
             this.monitoring_box.TabStop = false;
             this.monitoring_box.Text = "Monitoring";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(938, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "État";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(498, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 29);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Adresse IP";
             // 
             // label1
             // 
@@ -99,9 +114,9 @@
             // 
             this.computer_ip_lbl.AutoSize = true;
             this.computer_ip_lbl.Font = new System.Drawing.Font("Ebrima", 16.2F);
-            this.computer_ip_lbl.Location = new System.Drawing.Point(471, 164);
+            this.computer_ip_lbl.Location = new System.Drawing.Point(460, 164);
             this.computer_ip_lbl.Name = "computer_ip_lbl";
-            this.computer_ip_lbl.Size = new System.Drawing.Size(245, 38);
+            this.computer_ip_lbl.Size = new System.Drawing.Size(200, 38);
             this.computer_ip_lbl.TabIndex = 2;
             this.computer_ip_lbl.Text = "192.168.172.25";
             // 
@@ -109,9 +124,9 @@
             // 
             this.computer_name_lbl.AutoSize = true;
             this.computer_name_lbl.Font = new System.Drawing.Font("Ebrima", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computer_name_lbl.Location = new System.Drawing.Point(0, 164);
+            this.computer_name_lbl.Location = new System.Drawing.Point(6, 164);
             this.computer_name_lbl.Name = "computer_name_lbl";
-            this.computer_name_lbl.Size = new System.Drawing.Size(245, 38);
+            this.computer_name_lbl.Size = new System.Drawing.Size(109, 38);
             this.computer_name_lbl.TabIndex = 1;
             this.computer_name_lbl.Text = "Socrate";
             // 
@@ -125,30 +140,12 @@
             this.title.TabIndex = 0;
             this.title.Text = "Ping TTL";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(498, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Adresse IP";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(938, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 29);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "État";
-            // 
             // MonitoringView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            ///this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1104, 299);
+            this.ClientSize = new System.Drawing.Size(1113, 306);
             this.Controls.Add(this.monitoring_box);
             this.Name = "MonitoringView";
             this.Text = "Form1";
