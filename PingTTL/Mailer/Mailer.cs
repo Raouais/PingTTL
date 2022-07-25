@@ -16,7 +16,7 @@ namespace PingTTL.Mailer {
                 "" +
                 "";
 
-            email.Send(htmlBody);
+           //email.Send(htmlBody);
         }
     }
 }

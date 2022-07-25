@@ -30,7 +30,6 @@ namespace PingTTL {
                 controllerC.View.Show();
             } else {
                 //show monitoring
-                controllerM.AddComputersList(controllerC.Computers);
                 controllerM.StartMonitoring();
                 controllerM.View.ShowMonitoring();
             }

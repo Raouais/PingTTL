@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Exceptions\MaxComputerException.cs" />
+    <Compile Include="Model\Exceptions\EmailConnectionException.cs" />
     <Compile Include="Model\Exceptions\InvalidEmailAddressException.cs" />
     <Compile Include="Controller\Exceptions\SameIPAddressException.cs" />
     <Compile Include="Model\Email.cs" />

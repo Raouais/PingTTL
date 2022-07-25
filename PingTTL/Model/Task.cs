@@ -11,15 +11,22 @@ namespace PingTTL {
         private Computer computer;
         private string status;
         private List<Observer> observers;
-        Ping ping = new Ping();
+        private Ping ping;
+        private Thread thread;
         public Task(Computer computer) {
             this.computer = computer;
             status = "Non initié";
+            ping = new Ping();
             observers = new List<Observer>();
+            thread = new Thread(new ThreadStart(StartTask));
         }
 
         public void Run() {
-            Thread thread = new Thread(new ThreadStart(StartTask));
+            thread.Start();
+        }
+
+        public void Stop() {
+            thread.Abort();
         }
 
         private void StartTask() {

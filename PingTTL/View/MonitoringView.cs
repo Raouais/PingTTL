@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace PingTTL.View {
     public partial class MonitoringView :Form, Observer {
@@ -28,7 +29,6 @@ namespace PingTTL.View {
 
         public void StopMonitoring() { }
 
-
         private void IncreaseView() {
             currentHeightLabel += incrementHeightView;
             ClientSize = new System.Drawing.Size(ClientSize.Width, ClientSize.Height + incrementHeightView);
@@ -45,15 +45,20 @@ namespace PingTTL.View {
                 monitoring_box.Controls.Add(label);
                 label.AutoSize = true;
                 label.Font = new System.Drawing.Font("Ebrima",16.2F);
-                label.Name = computerProperties[i];
+                if(i == 2) {
+                    label.Name = computerProperties[i - 1];
+                } else {
+                    label.Name = computer.Name;
+                }
+                
                 label.Location = new System.Drawing.Point(widths[i],currentHeightLabel);
                 label.Text = computerProperties[i];
             }
             IncreaseView();
         }
 
-        private bool HasNotComputer(Computer computer) {
-            return !computers.Exists(c => c.Ip == computer.Ip);
+        private bool HasComputer(Computer computer) {
+            return computers.Exists(c => c.Ip == computer.Ip);
         }
 
         private Label GetLabel(string name) {
@@ -61,11 +66,12 @@ namespace PingTTL.View {
         }
         
         public void Update(Computer computer,string status) {
-            if(HasNotComputer(computer)) {
+            if(!HasComputer(computer)) {
                 createComputerLabels(computer,status);
+                computers.Add(computer);
             } else {
                 Label computerLabel = GetLabel(computer.Ip);
-                computerLabel.Text = status;
+                Invoke( new Action( () => computerLabel.Text = status));
             }
         }
 
