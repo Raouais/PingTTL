@@ -135,7 +135,6 @@
             this.quitBtn.TabIndex = 4;
             this.quitBtn.Text = "Quitter";
             this.quitBtn.UseVisualStyleBackColor = false;
-            this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
             // computerStatus
             // 

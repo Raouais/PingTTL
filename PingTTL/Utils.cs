@@ -18,7 +18,7 @@ namespace PingTTL {
         public static void WriteToBinaryFile<T>(string filePath,T objectToWrite,bool append = false) {
             Stream stream = null;
             try {
-                stream = File.Open(filePath,append ? FileMode.Append : FileMode.Create);
+                stream = File.Open(filePath, append ? FileMode.Append : FileMode.Create);
                 var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 binaryFormatter.Serialize(stream,objectToWrite);
                 stream.Close();

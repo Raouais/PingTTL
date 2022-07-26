@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Text;
+using System;
 
 namespace PingTTL {
     public class Task {
@@ -13,6 +14,7 @@ namespace PingTTL {
         private List<Observer> observers;
         private Ping ping;
         private Thread thread;
+        private bool running;
         public Task(Computer computer) {
             this.computer = computer;
             status = "Non initié";
@@ -42,15 +44,20 @@ namespace PingTTL {
             // before it is destroyed, and the data packet
             // cannot be fragmented.
             PingOptions options = new PingOptions(64,true);
-            while(true) {
-                PingReply reply = ping.Send(computer.Ip,timeout,buffer,options);
-                if(reply.Status == IPStatus.Success) {
-                    status = "Fonctionnelle";
-                } else {
-                    status = "Non Fonctionnelle";
+            while(running) {
+                try {
+                    PingReply reply = ping.Send(computer.Ip,timeout,buffer,options);
+                    if(reply.Status == IPStatus.Success) {
+                        status = "Fonctionnelle";
+                    } else {
+                        status = "Non Fonctionnelle";
+                    }
+                    Update();
+                    Thread.Sleep(computer.Timer * 1000);
+
+                } catch(Exception e) {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
                 }
-                Update();
-                Thread.Sleep(computer.Timer * 1000);
             }
         }
         public void Attached(MonitoringView observer) {
