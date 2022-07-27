@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System;
 using PingTTL.Model.Exceptions;
 using PingTTL.Mailer;
+using System.Threading;
 
 namespace PingTTL.View {
     public partial class ConfigView :Form, Observer {
         private List<Control> mailingControls   = new List<Control>();
         private List<Control> computerControls  = new List<Control>();
         private List<Control> firstStepControls = new List<Control>();
+        private Thread loadingThread;
         private bool isStepsNeeded;
 
         public List<Control> MailingControls { get => mailingControls; set => mailingControls = value; }
@@ -61,6 +63,37 @@ namespace PingTTL.View {
                     (c as TextBox).Text = "";
                 }
             });
+        }
+
+        public void ShowLoading(bool loading) {
+            loadingThread = null;
+            loadingThread = new Thread(new ThreadStart(StartLoading));
+            if(loading) {
+                if(config_box.Controls.Contains(error_lbl)) {
+                    config_box.Controls.Remove(error_lbl);
+                }
+                config_box.Controls.Add(loading_lbl);
+                config_box.Controls.Remove(email_btn);
+                loadingThread.Start();
+            } else {
+                config_box.Controls.Remove(loading_lbl);
+                config_box.Controls.Add(email_btn);
+                loadingThread.Abort();
+            }
+        }
+        public void StartLoading() {
+            string[] load = {
+                "Chargement",
+                "Chargement .",
+                "Chargement ..",
+                "Chargement ..."
+                };
+            int count = 0;
+            while(true) {
+                Invoke(new Action(() => loading_lbl.Text = load[count++]));
+                Thread.Sleep(300);
+                count = count >= load.Length ? 0 : count;
+            }
         }
         public void ShowError(string text) {
             error_lbl.Text = text;

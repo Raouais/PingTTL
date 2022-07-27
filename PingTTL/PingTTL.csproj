@@ -113,12 +113,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\loading_resized.gif" />
     <Content Include="ComputersData.txt" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.5</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

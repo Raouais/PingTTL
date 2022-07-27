@@ -43,7 +43,7 @@
             this.port_input = new System.Windows.Forms.TextBox();
             this.host_input = new System.Windows.Forms.TextBox();
             this.password_input = new System.Windows.Forms.TextBox();
-            this.password_input.PasswordChar = '*';
+            this.loading_lbl = new System.Windows.Forms.Label();
             this.config_box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,21 +62,21 @@
             // 
             this.ttl_input.Location = new System.Drawing.Point(155, 241);
             this.ttl_input.Name = "ttl_input";
-            this.ttl_input.Size = new System.Drawing.Size(267, 35);
+            this.ttl_input.Size = new System.Drawing.Size(267, 22);
             this.ttl_input.TabIndex = 9;
             // 
             // name_input
             // 
             this.name_input.Location = new System.Drawing.Point(155, 68);
             this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(267, 35);
+            this.name_input.Size = new System.Drawing.Size(267, 22);
             this.name_input.TabIndex = 7;
             // 
             // ip_input
             // 
             this.ip_input.Location = new System.Drawing.Point(155, 146);
             this.ip_input.Name = "ip_input";
-            this.ip_input.Size = new System.Drawing.Size(267, 35);
+            this.ip_input.Size = new System.Drawing.Size(267, 22);
             this.ip_input.TabIndex = 8;
             // 
             // error_lbl
@@ -269,8 +269,18 @@
             // 
             this.password_input.Location = new System.Drawing.Point(472, 195);
             this.password_input.Name = "password_input";
+            this.password_input.PasswordChar = '*';
             this.password_input.Size = new System.Drawing.Size(177, 22);
             this.password_input.TabIndex = 12;
+            // 
+            // loading_lbl
+            // 
+            this.loading_lbl.AutoSize = true;
+            this.loading_lbl.Location = new System.Drawing.Point(6, 299);
+            this.loading_lbl.Name = "loading_lbl";
+            this.loading_lbl.Size = new System.Drawing.Size(189, 36);
+            this.loading_lbl.TabIndex = 0;
+            this.loading_lbl.Text = "Chargment ...";
             // 
             // ConfigView
             // 
@@ -310,5 +320,6 @@
         public System.Windows.Forms.Label from_lbl;
         public System.Windows.Forms.Label email_lbl;
         public System.Windows.Forms.Label error_lbl;
+        private System.Windows.Forms.Label loading_lbl;
     }
 }
