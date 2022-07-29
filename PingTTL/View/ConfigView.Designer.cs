@@ -17,6 +17,12 @@
         }
         private void InitializeComponent() {
             this.config_box = new System.Windows.Forms.GroupBox();
+            this.port_input = new System.Windows.Forms.TextBox();
+            this.password_input = new System.Windows.Forms.TextBox();
+            this.host_input = new System.Windows.Forms.TextBox();
+            this.from_input = new System.Windows.Forms.TextBox();
+            this.to_input = new System.Windows.Forms.TextBox();
+            this.subject_input = new System.Windows.Forms.TextBox();
             this.ttl_input = new System.Windows.Forms.TextBox();
             this.name_input = new System.Windows.Forms.TextBox();
             this.ip_input = new System.Windows.Forms.TextBox();
@@ -37,13 +43,8 @@
             this.port_lbl = new System.Windows.Forms.Label();
             this.host_lbl = new System.Windows.Forms.Label();
             this.password_lbl = new System.Windows.Forms.Label();
-            this.from_input = new System.Windows.Forms.TextBox();
-            this.to_input = new System.Windows.Forms.TextBox();
-            this.subject_input = new System.Windows.Forms.TextBox();
-            this.port_input = new System.Windows.Forms.TextBox();
-            this.host_input = new System.Windows.Forms.TextBox();
-            this.password_input = new System.Windows.Forms.TextBox();
             this.loading_lbl = new System.Windows.Forms.Label();
+            this.ssl_box = new System.Windows.Forms.CheckBox();
             this.config_box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,49 @@
             this.config_box.TabIndex = 0;
             this.config_box.TabStop = false;
             this.config_box.Text = "Configurations";
+            // 
+            // port_input
+            // 
+            this.port_input.Location = new System.Drawing.Point(472, 91);
+            this.port_input.Name = "port_input";
+            this.port_input.Size = new System.Drawing.Size(177, 35);
+            this.port_input.TabIndex = 10;
+            // 
+            // password_input
+            // 
+            this.password_input.Location = new System.Drawing.Point(472, 195);
+            this.password_input.Name = "password_input";
+            this.password_input.PasswordChar = '*';
+            this.password_input.Size = new System.Drawing.Size(177, 35);
+            this.password_input.TabIndex = 12;
+            // 
+            // host_input
+            // 
+            this.host_input.Location = new System.Drawing.Point(472, 141);
+            this.host_input.Name = "host_input";
+            this.host_input.Size = new System.Drawing.Size(177, 35);
+            this.host_input.TabIndex = 11;
+            // 
+            // from_input
+            // 
+            this.from_input.Location = new System.Drawing.Point(95, 94);
+            this.from_input.Name = "from_input";
+            this.from_input.Size = new System.Drawing.Size(202, 35);
+            this.from_input.TabIndex = 7;
+            // 
+            // to_input
+            // 
+            this.to_input.Location = new System.Drawing.Point(95, 144);
+            this.to_input.Name = "to_input";
+            this.to_input.Size = new System.Drawing.Size(202, 35);
+            this.to_input.TabIndex = 8;
+            // 
+            // subject_input
+            // 
+            this.subject_input.Location = new System.Drawing.Point(95, 195);
+            this.subject_input.Name = "subject_input";
+            this.subject_input.Size = new System.Drawing.Size(202, 35);
+            this.subject_input.TabIndex = 9;
             // 
             // ttl_input
             // 
@@ -230,49 +274,6 @@
             this.password_lbl.TabIndex = 6;
             this.password_lbl.Text = "Mot de passe :";
             // 
-            // from_input
-            // 
-            this.from_input.Location = new System.Drawing.Point(95, 94);
-            this.from_input.Name = "from_input";
-            this.from_input.Size = new System.Drawing.Size(202, 22);
-            this.from_input.TabIndex = 7;
-            // 
-            // to_input
-            // 
-            this.to_input.Location = new System.Drawing.Point(95, 144);
-            this.to_input.Name = "to_input";
-            this.to_input.Size = new System.Drawing.Size(202, 22);
-            this.to_input.TabIndex = 8;
-            // 
-            // subject_input
-            // 
-            this.subject_input.Location = new System.Drawing.Point(95, 195);
-            this.subject_input.Name = "subject_input";
-            this.subject_input.Size = new System.Drawing.Size(202, 22);
-            this.subject_input.TabIndex = 9;
-            // 
-            // port_input
-            // 
-            this.port_input.Location = new System.Drawing.Point(472, 91);
-            this.port_input.Name = "port_input";
-            this.port_input.Size = new System.Drawing.Size(177, 22);
-            this.port_input.TabIndex = 10;
-            // 
-            // host_input
-            // 
-            this.host_input.Location = new System.Drawing.Point(472, 141);
-            this.host_input.Name = "host_input";
-            this.host_input.Size = new System.Drawing.Size(177, 22);
-            this.host_input.TabIndex = 11;
-            // 
-            // password_input
-            // 
-            this.password_input.Location = new System.Drawing.Point(472, 195);
-            this.password_input.Name = "password_input";
-            this.password_input.PasswordChar = '*';
-            this.password_input.Size = new System.Drawing.Size(177, 22);
-            this.password_input.TabIndex = 12;
-            // 
             // loading_lbl
             // 
             this.loading_lbl.AutoSize = true;
@@ -281,6 +282,16 @@
             this.loading_lbl.Size = new System.Drawing.Size(189, 36);
             this.loading_lbl.TabIndex = 0;
             this.loading_lbl.Text = "Chargment ...";
+            // 
+            // ssl_box
+            // 
+            this.ssl_box.AutoSize = true;
+            this.ssl_box.Location = new System.Drawing.Point(95, 251);
+            this.ssl_box.Name = "ssl_box";
+            this.ssl_box.Size = new System.Drawing.Size(74, 33);
+            this.ssl_box.TabIndex = 1;
+            this.ssl_box.Text = "SSL";
+            this.ssl_box.UseVisualStyleBackColor = true;
             // 
             // ConfigView
             // 
@@ -320,6 +331,7 @@
         public System.Windows.Forms.Label from_lbl;
         public System.Windows.Forms.Label email_lbl;
         public System.Windows.Forms.Label error_lbl;
+        public System.Windows.Forms.CheckBox ssl_box;
         private System.Windows.Forms.Label loading_lbl;
     }
 }

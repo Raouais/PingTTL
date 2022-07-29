@@ -24,10 +24,12 @@ namespace PingTTL {
         }
 
         public void Run() {
+            running = true;
             thread.Start();
         }
 
         public void Stop() {
+            running = false;
             thread.Abort();
         }
 

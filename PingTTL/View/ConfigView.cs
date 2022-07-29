@@ -90,7 +90,11 @@ namespace PingTTL.View {
                 };
             int count = 0;
             while(true) {
-                Invoke(new Action(() => loading_lbl.Text = load[count++]));
+                try {
+                    Invoke(new Action(() => loading_lbl.Text = load[count++]));
+                } catch(Exception ex) {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
+                }
                 Thread.Sleep(300);
                 count = count >= load.Length ? 0 : count;
             }
@@ -118,6 +122,7 @@ namespace PingTTL.View {
             MailingControls.Add(to_lbl);
             MailingControls.Add(from_input);
             MailingControls.Add(from_lbl);
+            MailingControls.Add(ssl_box);
             if(IsStepsNeeded) {
                 MailingControls.Add(step_lbl);
             }

@@ -8,7 +8,6 @@ namespace PingTTL.Model {
 
         private string name;
         private string ip;
-        private int port;
         private int timer;
 
 
@@ -23,7 +22,6 @@ namespace PingTTL.Model {
         }
         public string Name { get => name;  set => name = value; }
         public int Timer { get => timer; set => timer = value; }
-        public int Port { get => port; set => port = value; }
 
         public Computer(string name, string ip, int timer) { 
             Name = name;

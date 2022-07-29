@@ -19,12 +19,13 @@ namespace PingTTL {
             ControllerMonitoring controllerM = ControllerMonitoring.getInstance(MonitorView);
             ControllerConfig controllerC = ControllerConfig.getInstance(configView);
 
-            if(!controllerC.IsConfigAlreadyMade()) {
+            if(!controllerC.IsComputerConfigAlreadyMade) {
+                controllerC.IsConfiguring = true;
                 controllerC.View.IsStepsNeeded = true;
                 controllerC.View.AddListComponent();
                 controllerC.View.ShowFirstStepTemplate();
                 controllerC.View.Show();
-            } else if(!controllerC.IsEmailConfigAlreadyMade()) {
+            } else if(!controllerC.IsEmailConfigAlreadyMade) {
                 controllerC.View.AddListComponent();
                 controllerC.View.ShowMailingFormTemplate();
                 controllerC.View.Show();

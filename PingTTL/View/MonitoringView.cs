@@ -71,7 +71,11 @@ namespace PingTTL.View {
                 computers.Add(computer);
             } else {
                 Label computerLabel = GetLabel(computer.Ip);
-                Invoke( new Action( () => computerLabel.Text = status));
+                try {
+                    Invoke(new Action(() => computerLabel.Text = status));
+                } catch(Exception ex) {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);    
+                }
             }
         }
 
