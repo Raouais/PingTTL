@@ -15,9 +15,11 @@ namespace PingTTL {
         private Ping ping;
         private Thread thread;
         private bool running;
+        private string currentStatus;
         public Task(Computer computer) {
             this.computer = computer;
             status = "Non initié";
+            currentStatus = status;
             ping = new Ping();
             observers = new List<Observer>();
             thread = new Thread(new ThreadStart(StartTask));
@@ -54,9 +56,11 @@ namespace PingTTL {
                     } else {
                         status = "Non Fonctionnelle";
                     }
-                    Update();
+                    if(status != currentStatus) {
+                        currentStatus = status;
+                        Update();
+                    }
                     Thread.Sleep(computer.Timer * 1000);
-
                 } catch(Exception e) {
                     System.Diagnostics.Debug.WriteLine(e.Message);
                 }

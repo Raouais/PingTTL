@@ -57,20 +57,20 @@ namespace PingTTL.View {
             IncreaseView();
         }
 
-        private bool HasComputer(Computer computer) {
-            return computers.Exists(c => c.Ip == computer.Ip);
+        private bool HasNotComputer(Computer computer) {
+            return !computers.Exists(c => c.Equals(computer));
         }
 
-        private Label GetLabel(string name) {
+        private Label GetLabelByName(string name) {
             return Controls.Find(name,true).FirstOrDefault() as Label;
         }
         
         public void Update(Computer computer,string status) {
-            if(!HasComputer(computer)) {
+            if(HasNotComputer(computer)) {
                 createComputerLabels(computer,status);
                 computers.Add(computer);
             } else {
-                Label computerLabel = GetLabel(computer.Ip);
+                Label computerLabel = GetLabelByName(computer.Ip);
                 try {
                     Invoke(new Action(() => computerLabel.Text = status));
                 } catch(Exception ex) {
