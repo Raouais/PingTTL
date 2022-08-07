@@ -17,6 +17,7 @@
         }
         private void InitializeComponent() {
             this.config_box = new System.Windows.Forms.GroupBox();
+            this.email_btn = new System.Windows.Forms.Button();
             this.port_input = new System.Windows.Forms.TextBox();
             this.password_input = new System.Windows.Forms.TextBox();
             this.host_input = new System.Windows.Forms.TextBox();
@@ -28,7 +29,6 @@
             this.ip_input = new System.Windows.Forms.TextBox();
             this.error_lbl = new System.Windows.Forms.Label();
             this.next_btn = new System.Windows.Forms.Button();
-            this.email_btn = new System.Windows.Forms.Button();
             this.enter_computers_btn = new System.Windows.Forms.Button();
             this.step_lbl = new System.Windows.Forms.Label();
             this.nb_computers_lbl = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             // 
             // config_box
             // 
+            this.config_box.Controls.Add(this.email_btn);
             this.config_box.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.config_box.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.config_box.Location = new System.Drawing.Point(12, 12);
@@ -59,11 +60,20 @@
             this.config_box.TabStop = false;
             this.config_box.Text = "Configurations";
             // 
+            // email_btn
+            // 
+            this.email_btn.Location = new System.Drawing.Point(549, 286);
+            this.email_btn.Name = "email_btn";
+            this.email_btn.Size = new System.Drawing.Size(100, 39);
+            this.email_btn.TabIndex = 13;
+            this.email_btn.Text = "Entrer";
+            this.email_btn.UseVisualStyleBackColor = true;
+            // 
             // port_input
             // 
             this.port_input.Location = new System.Drawing.Point(472, 91);
             this.port_input.Name = "port_input";
-            this.port_input.Size = new System.Drawing.Size(177, 35);
+            this.port_input.Size = new System.Drawing.Size(177, 22);
             this.port_input.TabIndex = 10;
             // 
             // password_input
@@ -71,35 +81,35 @@
             this.password_input.Location = new System.Drawing.Point(472, 195);
             this.password_input.Name = "password_input";
             this.password_input.PasswordChar = '*';
-            this.password_input.Size = new System.Drawing.Size(177, 35);
+            this.password_input.Size = new System.Drawing.Size(177, 22);
             this.password_input.TabIndex = 12;
             // 
             // host_input
             // 
             this.host_input.Location = new System.Drawing.Point(472, 141);
             this.host_input.Name = "host_input";
-            this.host_input.Size = new System.Drawing.Size(177, 35);
+            this.host_input.Size = new System.Drawing.Size(177, 22);
             this.host_input.TabIndex = 11;
             // 
             // from_input
             // 
             this.from_input.Location = new System.Drawing.Point(95, 94);
             this.from_input.Name = "from_input";
-            this.from_input.Size = new System.Drawing.Size(202, 35);
+            this.from_input.Size = new System.Drawing.Size(202, 22);
             this.from_input.TabIndex = 7;
             // 
             // to_input
             // 
             this.to_input.Location = new System.Drawing.Point(95, 144);
             this.to_input.Name = "to_input";
-            this.to_input.Size = new System.Drawing.Size(202, 35);
+            this.to_input.Size = new System.Drawing.Size(202, 22);
             this.to_input.TabIndex = 8;
             // 
             // subject_input
             // 
             this.subject_input.Location = new System.Drawing.Point(95, 195);
             this.subject_input.Name = "subject_input";
-            this.subject_input.Size = new System.Drawing.Size(202, 35);
+            this.subject_input.Size = new System.Drawing.Size(202, 22);
             this.subject_input.TabIndex = 9;
             // 
             // ttl_input
@@ -140,15 +150,6 @@
             this.next_btn.TabIndex = 10;
             this.next_btn.Text = "Suivant";
             this.next_btn.UseVisualStyleBackColor = true;
-            // 
-            // email_btn
-            // 
-            this.email_btn.Location = new System.Drawing.Point(549, 286);
-            this.email_btn.Name = "email_btn";
-            this.email_btn.Size = new System.Drawing.Size(100, 39);
-            this.email_btn.TabIndex = 13;
-            this.email_btn.Text = "Entrer";
-            this.email_btn.UseVisualStyleBackColor = true;
             // 
             // enter_computers_btn
             // 
@@ -299,7 +300,6 @@
             this.Controls.Add(this.config_box);
             this.Name = "ConfigView";
             this.config_box.ResumeLayout(false);
-            this.config_box.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -19,9 +19,10 @@ namespace PingTTL {
             Stream stream = null;
             try {
                 stream = File.Open(filePath, append ? FileMode.Append : FileMode.Create);
-                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 stream.Seek(0,SeekOrigin.Begin);
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 binaryFormatter.Serialize(stream,objectToWrite);
+                stream.Flush();
             } catch(Exception e) {
                 System.Diagnostics.Debug.WriteLine(e.Message);
             } finally {
@@ -38,10 +39,11 @@ namespace PingTTL {
             try {
                 stream = File.Open(filePath,FileMode.Open);
                 var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                stream.Position = 0;
+                stream.Seek(0,SeekOrigin.Begin);
                 fileContent = (T) binaryFormatter.Deserialize(stream);
+                stream.Flush();
             } catch(Exception e) {
-                System.Diagnostics.Debug.WriteLine(e.Message);
+                System.Diagnostics.Debug.WriteLine("ICI " + e.Message);
             } finally {
                 if(stream != null) {
                     stream.Close();

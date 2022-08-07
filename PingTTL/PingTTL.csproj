@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ControllerConfig1.cs" />
     <Compile Include="Controller\Exceptions\MaxComputerException.cs" />
     <Compile Include="Model\Exceptions\EmailConnectionException.cs" />
     <Compile Include="Model\Exceptions\InvalidEmailAddressException.cs" />

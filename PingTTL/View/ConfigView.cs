@@ -53,8 +53,10 @@ namespace PingTTL.View {
                 config_box.Controls.Add((Button) c);
             } else if(c is TextBox) {
                 config_box.Controls.Add((TextBox) c);
-            } else {
+            } else if(c is Label){
                 config_box.Controls.Add((Label) c);
+            } else if(c is CheckBox) {
+                config_box.Controls.Add((CheckBox) c);
             }
         }
         public void ClearComputerFormTemplate() {

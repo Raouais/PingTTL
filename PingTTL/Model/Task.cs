@@ -66,7 +66,7 @@ namespace PingTTL {
                 }
             }
         }
-        public void Attached(MonitoringView observer) {
+        public void Attached(Observer observer) {
             observers.Add(observer);
             Update();
         }
