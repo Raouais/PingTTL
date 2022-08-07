@@ -35,6 +35,7 @@ namespace PingTTL.View {
             monitoring_box.ClientSize = new System.Drawing.Size(monitoring_box.ClientSize.Width,monitoring_box.ClientSize.Height + incrementHeightView);
             quitBtn.Location = new System.Drawing.Point(quitBtn.Location.X, quitBtn.Location.Y + incrementHeightView);
             configBtn.Location = new System.Drawing.Point(configBtn.Location.X, configBtn.Location.Y + incrementHeightView);
+            reset_btn.Location = new System.Drawing.Point(configBtn.Location.X,configBtn.Location.Y + incrementHeightView);
         }
         public void createComputerLabels(Computer computer, string status) {
             int[] widths = {nameLabelWidth, ipLabelWidth, statusLabelWidth};

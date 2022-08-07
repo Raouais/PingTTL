@@ -4,11 +4,11 @@ using System.Net;
 using System.Net.Mail;
 
 namespace PingTTL.Mailer {
-    public class Mailer :Observer {
+    public class Mailer : Observer {
 
 
         private Email email;
-        private string computerCurrrentStatus = "Non initié";
+        private string computerCurrrentStatus;
         private MailMessage message = new MailMessage();
         private SmtpClient smtpClient = new SmtpClient();
 
@@ -17,6 +17,7 @@ namespace PingTTL.Mailer {
 
         public Mailer(Email email) {
             Email = email;
+            ComputerCurrrentStatus = Task.INIT;
             message.From = new MailAddress(Email.FromMailAddress);
             message.To.Add(new MailAddress(Email.ToMailAddress));
             message.Subject = Email.Subject;
@@ -33,18 +34,19 @@ namespace PingTTL.Mailer {
             string goodNews = "<p>La machine " + computer.Name + " réponds à nouveaux.</p>";
             string badNews = "<p>La machine " + computer.Name + " ne réponds plus.</p>";
 
-            if(ComputerCurrrentStatus != "Non initié") {
-                if(status == "Non Fonctionnelle") {
+
+            if(ComputerCurrrentStatus != Task.INIT) {
+                if(status == Task.OUTREACH) {
                     Send(title + badNews);
-                } else {
+                } else if(ComputerCurrrentStatus == Task.OUTREACH && status == Task.WORKING) {
                     Send(title + goodNews);
                 }
-            } else if(ComputerCurrrentStatus == "Non initié") {
-                if(status == "Non Fonctionnelle") {
+            } else if(ComputerCurrrentStatus == Task.INIT) {
+                if(status == Task.OUTREACH) {
                     Send(title + badNews);
                 }
             }
-            ComputerCurrrentStatus = status; 
+            ComputerCurrrentStatus = status;
         }
 
         public void Send(string body) {

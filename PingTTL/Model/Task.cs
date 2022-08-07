@@ -16,9 +16,13 @@ namespace PingTTL {
         private Thread thread;
         private bool running;
         private string currentStatus;
+        public static readonly string INIT = "Non initié";
+        public static readonly string WORKING = "Fonctionnelle";
+        public static readonly string OUTREACH = "Non Fonctionnelle"; 
+
         public Task(Computer computer) {
             this.computer = computer;
-            status = "Non initié";
+            status = INIT;
             currentStatus = status;
             ping = new Ping();
             observers = new List<Observer>();
@@ -52,9 +56,9 @@ namespace PingTTL {
                 try {
                     PingReply reply = ping.Send(computer.Ip,timeout,buffer,options);
                     if(reply.Status == IPStatus.Success) {
-                        status = "Fonctionnelle";
+                        status = WORKING;
                     } else {
-                        status = "Non Fonctionnelle";
+                        status = OUTREACH;
                     }
                     if(status != currentStatus) {
                         currentStatus = status;
