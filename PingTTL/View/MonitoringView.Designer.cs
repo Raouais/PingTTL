@@ -204,13 +204,13 @@
         private System.Windows.Forms.Label computer_ip_lbl;
         private System.Windows.Forms.Label computer_name_lbl;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Button quitBtn;
-        private System.Windows.Forms.Button add_btn;
+        public System.Windows.Forms.Button quitBtn;
+        public System.Windows.Forms.Button add_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Label config_lbl;
-        private System.Windows.Forms.Button edit_email_btn;
+        public System.Windows.Forms.Button edit_email_btn;
     }
 }
