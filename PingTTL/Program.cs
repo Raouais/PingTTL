@@ -13,11 +13,8 @@ namespace PingTTL {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ConfigView configView = new ConfigView();
-            MonitoringView MonitorView = new MonitoringView();
-
-            ControllerMonitoring controllerM = ControllerMonitoring.getInstance(MonitorView);
-            ControllerConfig controllerC = ControllerConfig.getInstance(configView);
+            ControllerMonitoring controllerM = ControllerMonitoring.getInstance();
+            ControllerConfig controllerC = ControllerConfig.getInstance();
 
             if(!controllerC.IsComputerConfigAlreadyMade) {
                 controllerC.IsConfiguring = true;

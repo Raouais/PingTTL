@@ -18,10 +18,12 @@ namespace PingTTL {
         private string currentStatus;
         public static readonly string INIT = "Non initié";
         public static readonly string WORKING = "Fonctionnelle";
-        public static readonly string OUTREACH = "Non Fonctionnelle"; 
+        public static readonly string OUTREACH = "Non Fonctionnelle";
+
+        public Computer Computer { get => computer; set => computer = value; }
 
         public Task(Computer computer) {
-            this.computer = computer;
+            this.Computer = computer;
             status = INIT;
             currentStatus = status;
             ping = new Ping();
@@ -35,8 +37,10 @@ namespace PingTTL {
         }
 
         public void Stop() {
-            running = false;
-            thread.Abort();
+            if(running) { 
+                running = false;
+                thread.Abort();
+            }
         }
 
         private void StartTask() {
@@ -54,7 +58,7 @@ namespace PingTTL {
             PingOptions options = new PingOptions(64,true);
             while(running) {
                 try {
-                    PingReply reply = ping.Send(computer.Ip,timeout,buffer,options);
+                    PingReply reply = ping.Send(Computer.Ip,timeout,buffer,options);
                     if(reply.Status == IPStatus.Success) {
                         status = WORKING;
                     } else {
@@ -64,7 +68,7 @@ namespace PingTTL {
                         currentStatus = status;
                         Update();
                     }
-                    Thread.Sleep(computer.Timer * 1000);
+                    Thread.Sleep(Computer.Timer * 1000);
                 } catch(Exception e) {
                     System.Diagnostics.Debug.WriteLine(e.Message);
                 }
@@ -76,7 +80,7 @@ namespace PingTTL {
         }
 
         public void Update() {
-            observers.ForEach(o => o.Update(computer,status));
+            observers.ForEach(o => o.Update(Computer,status));
         }
     }
 }

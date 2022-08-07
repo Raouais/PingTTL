@@ -43,7 +43,7 @@ namespace PingTTL {
                 fileContent = (T) binaryFormatter.Deserialize(stream);
                 stream.Flush();
             } catch(Exception e) {
-                System.Diagnostics.Debug.WriteLine("ICI " + e.Message);
+                System.Diagnostics.Debug.WriteLine(e.Message);
             } finally {
                 if(stream != null) {
                     stream.Close();

@@ -20,7 +20,16 @@ namespace PingTTL.Model {
                     } 
             } 
         }
-        public string Name { get => name;  set => name = value; }
+        public string Name {
+            get { return name; }
+            set {
+                if(IsNameLenghOk(value)) {
+                    name = value;
+                } else {
+                    throw new InvalidNameException("Erreur : Le nom de la machine est trop long.");
+                }
+            }
+        }
         public int Timer { get => timer; set => timer = value; }
 
         public Computer(string name, string ip, int timer) { 
@@ -32,6 +41,14 @@ namespace PingTTL.Model {
         public bool IsIPAddressValid(string ip) {
             string patternIpAddress = @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
             return Regex.IsMatch(ip,patternIpAddress);
+        }
+
+        public bool IsNameLenghOk(string name) {
+            int maxNameLengh = 22;
+            if(name.Length > maxNameLengh) {
+                return false;
+            }
+            return true;
         }
     }
 }

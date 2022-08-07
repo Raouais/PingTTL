@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Mailer\Mailer.cs" />
     <Compile Include="Model\Exceptions\InvalidIPAddressException.cs" />
+    <Compile Include="Model\Exceptions\InvalidNameException.cs" />
     <Compile Include="Model\Observer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
