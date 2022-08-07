@@ -24,20 +24,22 @@
         /// </summary>
         private void InitializeComponent() {
             this.monitoring_box = new System.Windows.Forms.GroupBox();
+            this.reset_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.configBtn = new System.Windows.Forms.Button();
             this.quitBtn = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
             this.computer_status_lbl = new System.Windows.Forms.Label();
             this.computer_ip_lbl = new System.Windows.Forms.Label();
             this.computer_name_lbl = new System.Windows.Forms.Label();
-            this.title = new System.Windows.Forms.Label();
             this.monitoring_box.SuspendLayout();
             this.SuspendLayout();
             // 
             // monitoring_box
             // 
+            this.monitoring_box.Controls.Add(this.reset_btn);
             this.monitoring_box.Controls.Add(this.label3);
             this.monitoring_box.Controls.Add(this.label2);
             this.monitoring_box.Controls.Add(this.label1);
@@ -52,6 +54,17 @@
             this.monitoring_box.TabIndex = 0;
             this.monitoring_box.TabStop = false;
             this.monitoring_box.Text = "Monitoring";
+            // 
+            // reset_btn
+            // 
+            this.reset_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.reset_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reset_btn.Location = new System.Drawing.Point(487, 223);
+            this.reset_btn.Name = "reset_btn";
+            this.reset_btn.Size = new System.Drawing.Size(131, 46);
+            this.reset_btn.TabIndex = 8;
+            this.reset_btn.Text = "Reset";
+            this.reset_btn.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -100,6 +113,16 @@
             this.quitBtn.Text = "Quitter";
             this.quitBtn.UseVisualStyleBackColor = false;
             // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Cascadia Code", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(480, 31);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(161, 40);
+            this.title.TabIndex = 0;
+            this.title.Text = "Ping TTL";
+            // 
             // computer_status_lbl
             // 
             this.computer_status_lbl.AutoSize = true;
@@ -130,19 +153,9 @@
             this.computer_name_lbl.TabIndex = 1;
             this.computer_name_lbl.Text = "Socrate";
             // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("Cascadia Code", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(480, 31);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(161, 40);
-            this.title.TabIndex = 0;
-            this.title.Text = "Ping TTL";
-            // 
             // MonitoringView
             // 
-            ///this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1113, 306);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button reset_btn;
     }
 }
