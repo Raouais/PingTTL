@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Drawing;
 
 namespace PingTTL.View {
     public partial class MonitoringView :Form, Observer {
@@ -72,6 +73,21 @@ namespace PingTTL.View {
         private Label GetLabelByName(string name) {
             return Controls.Find(name,true).FirstOrDefault() as Label;
         }
+
+        private void ChangeLabelByStatus(Label lbl, string status) {
+            lbl.Text = status;
+
+            if(status == Task.INIT) {
+                lbl.ForeColor = Color.Black;
+                lbl.BackColor = Color.Silver;
+            } else if(status == Task.WORKING) {
+                lbl.ForeColor= Color.Black;
+                lbl.BackColor = Color.Green;
+            } else {
+                lbl.ForeColor= Color.White;
+                lbl.BackColor = Color.Red;
+            }
+        }
         
         public void Update(Computer computer,string status) {
             if(HasNotComputer(computer)) {
@@ -80,7 +96,7 @@ namespace PingTTL.View {
             } else {
                 Label computerLabel = GetLabelByName(computer.Ip);
                 try {
-                    Invoke(new Action(() => computerLabel.Text = status));
+                    Invoke(new Action(() => ChangeLabelByStatus(computerLabel, status)));
                 } catch(Exception ex) {
                     System.Diagnostics.Debug.WriteLine(ex.Message);    
                 }
