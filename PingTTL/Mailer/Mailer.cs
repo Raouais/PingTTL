@@ -8,16 +8,16 @@ namespace PingTTL.Mailer {
 
 
         private Email email;
-        private string computerCurrrentStatus;
+        private string computerCurrentStatus;
         private MailMessage message = new MailMessage();
         private SmtpClient smtpClient = new SmtpClient();
 
         public Email Email { get => email; set => email = value; }
-        public string ComputerCurrrentStatus{ get => computerCurrrentStatus; set => computerCurrrentStatus = value; }
+        public string ComputerCurrentStatus{ get => computerCurrentStatus; set => computerCurrentStatus = value; }
 
         public Mailer(Email email) {
             Email = email;
-            ComputerCurrrentStatus = Task.INIT;
+            ComputerCurrentStatus = Task.INIT;
             message.From = new MailAddress(Email.FromMailAddress);
             message.To.Add(new MailAddress(Email.ToMailAddress));
             message.Subject = Email.Subject;
@@ -32,21 +32,16 @@ namespace PingTTL.Mailer {
         public void Update(Computer computer,string status) {
             string title = "<h1>PingTTL Info</h1></br>";
             string goodNews = "<p>La machine " + computer.Name + " réponds à nouveaux.</p>";
-            string badNews = "<p>La machine " + computer.Name + " ne réponds plus.</p>";
+            string badNews = "<p>La machine " + computer.Name + " ne réponds pas.</p>";
 
 
-            if(ComputerCurrrentStatus != Task.INIT) {
-                if(status == Task.OUTREACH) {
-                    Send(title + badNews);
-                } else if(ComputerCurrrentStatus == Task.OUTREACH && status == Task.WORKING) {
-                    Send(title + goodNews);
-                }
-            } else if(ComputerCurrrentStatus == Task.INIT) {
-                if(status == Task.OUTREACH) {
-                    Send(title + badNews);
-                }
+            if(ComputerCurrentStatus != Task.OUTREACH && status == Task.OUTREACH) {
+                Send(title + badNews);
+            } else if(ComputerCurrentStatus == Task.OUTREACH && status == Task.WORKING) {
+                Send(title + goodNews);
             }
-            ComputerCurrrentStatus = status;
+
+            ComputerCurrentStatus = status;
         }
 
         public void Send(string body) {

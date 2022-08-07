@@ -68,9 +68,9 @@ namespace PingTTL.View {
         }
 
         public void ShowLoading(bool loading) {
-            loadingThread = null;
-            loadingThread = new Thread(new ThreadStart(StartLoading));
             if(loading) {
+                loadingThread = null;
+                loadingThread = new Thread(new ThreadStart(StartLoading));
                 if(config_box.Controls.Contains(error_lbl)) {
                     config_box.Controls.Remove(error_lbl);
                 }
@@ -86,9 +86,9 @@ namespace PingTTL.View {
         public void StartLoading() {
             string[] load = {
                 "Chargement",
-                "Chargement .",
-                "Chargement ..",
-                "Chargement ..."
+                "Chargement.",
+                "Chargement..",
+                "Chargement..."
                 };
             int count = 0;
             while(true) {
