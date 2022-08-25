@@ -1,0 +1,4 @@
+Question 1 –Threads
+
+Un sémaphore permet de préciser combien de threads peuvent accéder à la section critique.
+C'est à dire que plusieurs threads peuvent accéder à une ressources partagée.
