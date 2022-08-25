@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.monitoring_box = new System.Windows.Forms.GroupBox();
+            this.notify_lbl = new System.Windows.Forms.Label();
             this.config_lbl = new System.Windows.Forms.Label();
             this.edit_email_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.computer_status_lbl = new System.Windows.Forms.Label();
             this.computer_name_lbl = new System.Windows.Forms.Label();
             this.computer_ip_lbl = new System.Windows.Forms.Label();
-            this.notify_lbl = new System.Windows.Forms.Label();
             this.monitoring_box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,10 +56,19 @@
             this.monitoring_box.ForeColor = System.Drawing.Color.Black;
             this.monitoring_box.Location = new System.Drawing.Point(12, 12);
             this.monitoring_box.Name = "monitoring_box";
-            this.monitoring_box.Size = new System.Drawing.Size(979, 410);
+            this.monitoring_box.Size = new System.Drawing.Size(1000, 410);
             this.monitoring_box.TabIndex = 0;
             this.monitoring_box.TabStop = false;
             this.monitoring_box.Text = "Monitoring";
+            // 
+            // notify_lbl
+            // 
+            this.notify_lbl.AutoSize = true;
+            this.notify_lbl.Location = new System.Drawing.Point(8, 47);
+            this.notify_lbl.Name = "notify_lbl";
+            this.notify_lbl.Size = new System.Drawing.Size(156, 29);
+            this.notify_lbl.TabIndex = 11;
+            this.notify_lbl.Text = "Notifications :";
             // 
             // config_lbl
             // 
@@ -182,20 +191,11 @@
             this.computer_ip_lbl.TabIndex = 2;
             this.computer_ip_lbl.Text = "192.168.172.25";
             // 
-            // notify_lbl
-            // 
-            this.notify_lbl.AutoSize = true;
-            this.notify_lbl.Location = new System.Drawing.Point(8, 47);
-            this.notify_lbl.Name = "notify_lbl";
-            this.notify_lbl.Size = new System.Drawing.Size(156, 29);
-            this.notify_lbl.TabIndex = 11;
-            this.notify_lbl.Text = "Notifications :";
-            // 
             // MonitoringView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1002, 432);
+            this.ClientSize = new System.Drawing.Size(1045, 432);
             this.Controls.Add(this.monitoring_box);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MonitoringView";

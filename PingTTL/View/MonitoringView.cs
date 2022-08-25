@@ -74,8 +74,9 @@ namespace PingTTL.View {
             return Controls.Find(name,true).FirstOrDefault() as Label;
         }
 
-        private void ChangeLabelByStatus(Label lbl, string status) {
-            lbl.Text = status;
+        private void ChangeLabelByStatus(Computer computer, string status) {
+            Label lbl = GetLabelByName(computer.Ip);
+            lbl.Text = status + " Time :" + computer.NonFonctionnalTime;
 
             if(status == Task.INIT) {
                 lbl.ForeColor = Color.Black;
@@ -94,13 +95,14 @@ namespace PingTTL.View {
                     Notifications++;
                     notify_lbl.Text = "Notification : " + Notifications.ToString();
                 }));
-                if(HasNotComputer(computer)) {
+
+            if(HasNotComputer(computer)) {
                 createComputerLabels(computer,status);
                 computers.Add(computer);
             } else {
                 Label computerLabel = GetLabelByName(computer.Ip);
                 try {
-                    Invoke(new Action(() => ChangeLabelByStatus(computerLabel, status)));
+                    Invoke(new Action(() => ChangeLabelByStatus(computer, status)));
                 } catch(Exception ex) {
                     System.Diagnostics.Debug.WriteLine(ex.Message);    
                 }

@@ -9,7 +9,7 @@ namespace PingTTL.Model {
         private string name;
         private string ip;
         private int timer;
-
+        [NonSerialized()] private int nonFonctionnalTime;
 
         public string Ip { 
             get { return ip; } 
@@ -31,6 +31,7 @@ namespace PingTTL.Model {
             }
         }
         public int Timer { get => timer; set => timer = value; }
+        public int NonFonctionnalTime { get => nonFonctionnalTime; set => nonFonctionnalTime = value; }
 
         public Computer(string name, string ip, int timer) { 
             Name = name;
