@@ -28,10 +28,10 @@ namespace PingTTL {
                 controllerC.View.ShowMailingFormTemplate();
                 controllerC.View.Show();
             } else {
+                controllerM.View.Show();
                 controllerM.Computers = controllerC.Computers;
                 controllerM.Email = controllerC.Email;
                 controllerM.StartMonitoring();
-                controllerM.View.Show();
             }
             Application.Run();
         }

@@ -36,11 +36,13 @@
             this.computer_status_lbl = new System.Windows.Forms.Label();
             this.computer_name_lbl = new System.Windows.Forms.Label();
             this.computer_ip_lbl = new System.Windows.Forms.Label();
+            this.notify_lbl = new System.Windows.Forms.Label();
             this.monitoring_box.SuspendLayout();
             this.SuspendLayout();
             // 
             // monitoring_box
             // 
+            this.monitoring_box.Controls.Add(this.notify_lbl);
             this.monitoring_box.Controls.Add(this.config_lbl);
             this.monitoring_box.Controls.Add(this.edit_email_btn);
             this.monitoring_box.Controls.Add(this.label3);
@@ -50,11 +52,6 @@
             this.monitoring_box.Controls.Add(this.quitBtn);
             this.monitoring_box.Controls.Add(this.title);
             this.monitoring_box.Controls.Add(this.reset_btn);
-            /* Test
-            this.monitoring_box.Controls.Add(this.computer_status_lbl);
-            this.monitoring_box.Controls.Add(this.computer_name_lbl);
-            this.monitoring_box.Controls.Add(this.computer_ip_lbl);
-            */
             this.monitoring_box.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monitoring_box.ForeColor = System.Drawing.Color.Black;
             this.monitoring_box.Location = new System.Drawing.Point(12, 12);
@@ -185,19 +182,28 @@
             this.computer_ip_lbl.TabIndex = 2;
             this.computer_ip_lbl.Text = "192.168.172.25";
             // 
+            // notify_lbl
+            // 
+            this.notify_lbl.AutoSize = true;
+            this.notify_lbl.Location = new System.Drawing.Point(8, 47);
+            this.notify_lbl.Name = "notify_lbl";
+            this.notify_lbl.Size = new System.Drawing.Size(156, 29);
+            this.notify_lbl.TabIndex = 11;
+            this.notify_lbl.Text = "Notifications :";
+            // 
             // MonitoringView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1002, 432);
             this.Controls.Add(this.monitoring_box);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MonitoringView";
             this.Text = "Form1";
+            this.TopMost = true;
             this.monitoring_box.ResumeLayout(false);
             this.monitoring_box.PerformLayout();
             this.ResumeLayout(false);
-            this.TopMost = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 
         }
 
@@ -216,5 +222,6 @@
         public System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Label config_lbl;
         public System.Windows.Forms.Button edit_email_btn;
+        private System.Windows.Forms.Label notify_lbl;
     }
 }

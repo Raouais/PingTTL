@@ -11,6 +11,7 @@ namespace PingTTL.View {
     public partial class MonitoringView :Form, Observer {
 
         private readonly int LABELPERCOMPUTER = 3;
+        private int notifications = 0;
 
         private readonly int nameLabelPosX = 6;
         private readonly int ipLabelPosX = 468;
@@ -22,6 +23,9 @@ namespace PingTTL.View {
         private int currentLabelPosY;
 
         private List<Computer> computers;
+
+        public int Notifications { get => notifications; set => notifications = value; }
+
         public MonitoringView() {
             computers = new List<Computer>();
             currentLabelPosY = initLabelPoxY;
@@ -86,7 +90,11 @@ namespace PingTTL.View {
         }
         
         public void Update(Computer computer,string status) {
-            if(HasNotComputer(computer)) {
+            Invoke(new Action(() => {
+                    Notifications++;
+                    notify_lbl.Text = "Notification : " + Notifications.ToString();
+                }));
+                if(HasNotComputer(computer)) {
                 createComputerLabels(computer,status);
                 computers.Add(computer);
             } else {
