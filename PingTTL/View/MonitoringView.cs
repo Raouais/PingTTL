@@ -62,10 +62,6 @@ namespace PingTTL.View {
             IncreaseView();
         }
 
-        public void RemoveComputer(Computer computer) {
-
-        }
-
         private bool HasNotComputer(Computer computer) {
             return !computers.Exists(c => c.Equals(computer));
         }

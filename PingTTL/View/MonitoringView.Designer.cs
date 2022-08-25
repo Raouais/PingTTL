@@ -50,9 +50,11 @@
             this.monitoring_box.Controls.Add(this.quitBtn);
             this.monitoring_box.Controls.Add(this.title);
             this.monitoring_box.Controls.Add(this.reset_btn);
+            /* Test
             this.monitoring_box.Controls.Add(this.computer_status_lbl);
             this.monitoring_box.Controls.Add(this.computer_name_lbl);
             this.monitoring_box.Controls.Add(this.computer_ip_lbl);
+            */
             this.monitoring_box.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monitoring_box.ForeColor = System.Drawing.Color.Black;
             this.monitoring_box.Location = new System.Drawing.Point(12, 12);
@@ -194,6 +196,8 @@
             this.monitoring_box.ResumeLayout(false);
             this.monitoring_box.PerformLayout();
             this.ResumeLayout(false);
+            this.TopMost = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 
         }
 

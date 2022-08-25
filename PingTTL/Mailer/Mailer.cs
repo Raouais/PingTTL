@@ -5,8 +5,6 @@ using System.Net.Mail;
 
 namespace PingTTL.Mailer {
     public class Mailer : Observer {
-
-
         private Email email;
         private string computerCurrentStatus;
         private MailMessage message = new MailMessage();

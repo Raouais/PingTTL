@@ -210,7 +210,7 @@
             this.ttl_lbl.Name = "ttl_lbl";
             this.ttl_lbl.Size = new System.Drawing.Size(124, 29);
             this.ttl_lbl.TabIndex = 6;
-            this.ttl_lbl.Text = "Intervalle :";
+            this.ttl_lbl.Text = "Intervalle (s):";
             // 
             // email_lbl
             // 

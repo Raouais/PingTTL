@@ -23,6 +23,7 @@ namespace PingTTL {
                 controllerC.View.ShowFirstStepTemplate();
                 controllerC.View.Show();
             } else if(!controllerC.IsEmailConfigAlreadyMade) {
+                controllerC.IsConfiguring = true;
                 controllerC.View.AddListComponent();
                 controllerC.View.ShowMailingFormTemplate();
                 controllerC.View.Show();

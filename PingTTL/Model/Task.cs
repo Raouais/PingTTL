@@ -14,7 +14,7 @@ namespace PingTTL {
         private List<Observer> observers;
         private Ping ping;
         private Thread thread;
-        private bool running;
+        private volatile bool running;
         private string currentStatus;
         public static readonly string INIT = "Non initié";
         public static readonly string WORKING = "Fonctionnelle";
@@ -23,12 +23,13 @@ namespace PingTTL {
         public Computer Computer { get => computer; set => computer = value; }
 
         public Task(Computer computer) {
-            this.Computer = computer;
+            Computer = computer;
             status = INIT;
             currentStatus = status;
             ping = new Ping();
             observers = new List<Observer>();
             thread = new Thread(new ThreadStart(StartTask));
+            thread.IsBackground = true;
         }
 
         public void Run() {
@@ -39,7 +40,6 @@ namespace PingTTL {
         public void Stop() {
             if(running) { 
                 running = false;
-                thread.Abort();
             }
         }
 
